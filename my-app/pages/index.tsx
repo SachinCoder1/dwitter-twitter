@@ -2,8 +2,10 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Btn from '../components/Btn'
+import useDwitter from '../hooks/useDwitter'
 
 const Home: NextPage = () => {
+  const {connect, currentAccount} = useDwitter()
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -19,7 +21,7 @@ const Home: NextPage = () => {
           </span>
         </h1>
 
-        <Btn text='Signup to Dwitter-twitter' onClick={()=> console.log('please wait !!!!')} />
+       {currentAccount? "You are connected to your wallet." : <Btn text='Signup to Dwitter-twitter' onClick={connect} />}
 
        
       </main>

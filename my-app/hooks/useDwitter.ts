@@ -1,5 +1,6 @@
 import Dwitter from './Dwitter.json'
 import ethers from 'ethers'
+import { useState } from 'react'
 
 
 const contractABI = Dwitter.abi
@@ -18,6 +19,7 @@ const getDwitterContract = ()=>{
 
 const useDwitter = ()=> {
     // const dwitter = getDwitterContract()
+    const [currentAccount, setCurrentAccount] = useState<string>('')
 
     const connect = async ()=>{
         try {
@@ -25,13 +27,30 @@ const useDwitter = ()=> {
                 alert("You don't have metamask wallet, kindly install")
                 return;
             }
+
+            const accounts  = await Ethereum.request({
+                method: 'eth_requestAccounts'
+            })
+            if(accounts.length == 0){
+                console.log("No authorization accounts");
+                return;
+            }
+
+            const account = accounts[0];
+            console.log("Coonnected to your account", account)
+            setCurrentAccount(account)
             
   
 
         } catch (error) {
             console.log(error)
         }
-    }
+    };
+
+  
+    
+
+    return {connect, currentAccount}
 
 }
 
