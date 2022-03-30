@@ -1,6 +1,6 @@
 import Dwitter from './Dwitter.json'
 import ethers from 'ethers'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 const contractABI = Dwitter.abi
@@ -47,7 +47,14 @@ const useDwitter = ()=> {
         }
     };
 
-  
+    useEffect(() => {
+      if(!Ethereum){
+          console.log("you don't have any wallet connected, pleaset get metamask");
+          return;
+      }
+      connect()
+
+    }, [])
     
 
     return {connect, currentAccount}
