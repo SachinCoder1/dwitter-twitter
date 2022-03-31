@@ -5,7 +5,7 @@ type Props = {
 
 const Btn :  React.FC<Props> = ({text, onClick})=>{
  return (
-     <button onClick={onClick} className="px-6 my-2 py-2 text-white bg-blue-400 rounded-lg">
+     <button onClick={onClick} className="px-6 my-2 py-2 text-white bg-blue-500 rounded-lg">
          {text}
      </button>
  )
