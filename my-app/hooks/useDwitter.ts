@@ -7,15 +7,14 @@ const ContractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
 const Ethereum = typeof window !== 'undefined' && (window as any).ethereum
 
 const getDwitterContract = () => {
-  const provider = new ethers.providers.Web3Provider(Ethereum);
+  const provider = new ethers.providers.Web3Provider(Ethereum)
   const signer = provider.getSigner()
   return new ethers.Contract(ContractAddress, ContractABI, signer)
-} 
+}
 
 const useDwitter = () => {
-  const dwitter = getDwitterContract()
+  // const dwitter = getDwitterContract()
   const [currentAccount, setCurrentAccount] = useState<string>('')
-    // const [currentUser, setCurrentUser] = useState<string>('')
 
   const connect = async () => {
     try {
@@ -36,29 +35,33 @@ const useDwitter = () => {
       console.log('Connected to your account', account)
       setCurrentAccount(account)
     } catch (error) {
-      console.log("there is a alo", error)
+      console.log('there is a alo', error)
     }
   }
 
   useEffect(() => {
     if (!Ethereum) {
       console.log("you don't have any wallet connected, pleaset get metamask")
-      return;
+      return
     }
     connect()
+
+     
   }, [])
 
+
   const getUser = async () => {
+    console.log("you are in getUser function")
     const contract = getDwitterContract()
-    const user = await contract.getUser(currentAccount)
+    const user = await contract.getUser(currentAccount && currentAccount)
     console.log(user)
     return user
   }
 
   useEffect(() => {
-    if (currentAccount) {
-      getUser()
-    }
+      if(currentAccount){
+        getUser()
+      }
   }, [currentAccount])
 
   return { connect, currentAccount }
