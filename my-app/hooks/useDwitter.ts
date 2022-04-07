@@ -1,6 +1,6 @@
-import Dwitter from './Dwitter.json'
-import { ethers } from 'ethers'
-import { useState, useEffect } from 'react'
+import Dwitter from './Dwitter.json';
+import { ethers } from 'ethers';
+import { useEffect, useState } from 'react';
 
 const ContractABI = Dwitter.abi
 const ContractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
@@ -14,46 +14,48 @@ const getDwitterContract = () => {
 
 const useDwitter = () => {
   // const dwitter = getDwitterContract()
-  const [currentAccount, setCurrentAccount] = useState<string>('')
+ const [currentAccount, setCurrentAccount] = useState<string>('')
 
   const connect = async () => {
     try {
       if (!Ethereum) {
-        alert("You don't have metamask wallet, kindly install")
+        alert('Please install MetaMask')
         return
       }
-
       const accounts = await Ethereum.request({
         method: 'eth_requestAccounts',
       })
-      if (accounts.length == 0) {
-        console.log('No authorization accounts')
+      if (accounts.length === 0) {
+        console.log('No authorized accounts')
         return
       }
 
       const account = accounts[0]
-      console.log('Connected to your account', account)
+      console.log('Connected to account: ', account)
       setCurrentAccount(account)
-    } catch (error) {
-      console.log('there is a alo', error)
+    } catch (e) {
+      console.error(e)
     }
   }
 
   useEffect(() => {
     if (!Ethereum) {
-      console.log("you don't have any wallet connected, pleaset get metamask")
-      return
+      console.log('No ethereum wallets found, please get metamask');
+      return;
     }
-    connect()
+    connect();
+  }, []);
 
-     
-  }, [])
+    useEffect(() => {
+    if (currentAccount) {
+      getUser();
+    }
+  }, [currentAccount]);
 
 
   const getUser = async () => {
-    console.log("you are in getUser function")
     const contract = getDwitterContract()
-    const user = await contract.getUser(currentAccount && currentAccount)
+    const user = await contract.getUser(currentAccount)
     console.log(user)
     return user
   }
@@ -64,7 +66,7 @@ const useDwitter = () => {
       }
   }, [currentAccount])
 
-  return { connect, currentAccount }
+  return { connect, account: currentAccount }
 }
 
 export default useDwitter

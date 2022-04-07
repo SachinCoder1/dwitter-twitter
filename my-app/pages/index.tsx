@@ -5,7 +5,7 @@ import Btn from '../components/Btn'
 import useDwitter from '../hooks/useDwitter'
 
 const Home: NextPage = () => {
-  const {connect, currentAccount} = useDwitter()
+  const {connect, account} = useDwitter()
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
           </span>
         </h1>
 
-       {currentAccount? "You are connected to your wallet." : <Btn text='Signup to Dwitter-twitter' onClick={connect} />}
+       {account? "You are connected to your wallet." : <Btn text='Signup to Dwitter-twitter' onClick={connect} />}
 
        
       </main>
