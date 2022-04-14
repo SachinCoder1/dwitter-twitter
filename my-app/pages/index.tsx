@@ -23,6 +23,8 @@ const Home: NextPage = () => {
           </span>
         </h1>
 
+        {/* Button */}
+
        {account? account.toUpperCase() !== user?.wallet.toUpperCase() ? <MyForm createUser={createUser} /> : `Hey ${user?.name} Welcome back` : <Btn text='Signup to Dwitter-twitter' onClick={connect} />}
 
        
