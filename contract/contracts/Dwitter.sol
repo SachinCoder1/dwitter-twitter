@@ -44,7 +44,7 @@ function signup(string memory _username, string memory _name, string memory _bio
    }
 
    function postDweet (string memory _content) public {
-       require(bytes(usernames[msg.sender]).length > 0, "You Must have signed up to use this functionality.");
+       require(bytes(username[msg.sender]).length > 0, "You Must have signed up to use this functionality.");
        require(bytes(_content).length > 0, "You must right something in order to post a dweet.");
        require(bytes(_content).length < 140, "Character must be lower than 140.");
 
