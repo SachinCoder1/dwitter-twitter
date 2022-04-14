@@ -19,9 +19,9 @@ const MyForm: React.FC<Props> = ({ createUser }) => {
   return (
     <div className="flex flex-col items-center justify-center space-y-5">
       <div className="flex flex-col">
-        <label htmlFor="username">Enter Username</label>
+        <label className='text-left' htmlFor="username">Enter Username</label>
         <input
-          className="my-1 w-80 rounded-xl px-2 py-2 outline-blue-500"
+          className="my-1 w-80 border-2 border-gray-400 rounded-xl px-2 py-2 outline-blue-500"
           type="text"
           placeholder="Enter username"
           value={yourUserName}
@@ -31,9 +31,9 @@ const MyForm: React.FC<Props> = ({ createUser }) => {
         />
       </div>
       <div className="flex flex-col">
-        <label htmlFor="name">Enter name</label>
+        <label className="text-left" htmlFor="name">Enter name</label>
         <input
-          className="my-1 w-80 rounded-xl px-2 py-2 outline-blue-500"
+          className="my-1 w-80 border-2 border-gray-400 rounded-xl px-2 py-2 outline-blue-500"
           type="text"
           placeholder="Enter name"
           value={yourName}
@@ -43,9 +43,9 @@ const MyForm: React.FC<Props> = ({ createUser }) => {
         />
       </div>
       <div className="flex flex-col">
-        <label htmlFor="bio">Enter bio</label>
+        <label className="text-left" htmlFor="bio">Enter bio</label>
         <input
-          className="my-1 w-80 rounded-xl px-2 py-2 outline-blue-500"
+          className="my-1 w-80 border-2 border-gray-400 rounded-xl px-2 py-2 outline-blue-500"
           type="text"
           placeholder="Enter bio"
           value={yourBio}
@@ -55,9 +55,9 @@ const MyForm: React.FC<Props> = ({ createUser }) => {
         />
       </div>
       <div className="flex flex-col">
-        <label htmlFor="avatar">Enter avatar</label>
+        <label className="text-left" htmlFor="avatar">Enter avatar</label>
         <input
-          className="my-1 w-80 rounded-xl px-2 py-2 outline-blue-500"
+          className="my-1 w-80 border-2 border-gray-400 rounded-xl px-2 py-2 outline-blue-500"
           type="text"
           placeholder="Enter avatar"
           value={yourAvatar}

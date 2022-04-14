@@ -30,7 +30,7 @@ const Home: NextPage = () => {
               <div className="flex items-center">
                 <img
                   className="h-[60px] rounded-full"
-                  src={user?.avatar}
+                  src={user?.bio}
                   alt="avatar"
                 />
                 <textarea
