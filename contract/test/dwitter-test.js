@@ -33,7 +33,7 @@ describe("Dwitter", function () {
     console.log("test username is taken error");
     await dwitter.postDweet("Hello my new world")
    
-     expect((await dwitter.dweets[0]).content).to.equal("Hello my new world");
+     expect((await dwitter.dweets(0)).content).to.equal("Hello my new world");
      console.log("test get dweets is successful")
 
   });
