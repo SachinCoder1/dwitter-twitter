@@ -55,4 +55,8 @@ function signup(string memory _username, string memory _name, string memory _bio
        dweets.push(dweet);
 
    }
+
+   function getDweets() public view returns (Dweet[] memory) {
+        return dweets;
+   } 
 }

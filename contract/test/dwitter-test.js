@@ -32,7 +32,9 @@ describe("Dwitter", function () {
     ).to.be.revertedWith("Username is taken, please try another one.");
     console.log("test username is taken error");
     await dwitter.postDweet("Hello my new world")
-    const dweet = await dwitter.dweets(0);
-    console.log(dweet)
+   
+     expect((await dwitter.dweets[0]).content).to.equal("Hello my new world");
+     console.log("test get dweets is successful")
+
   });
 });
