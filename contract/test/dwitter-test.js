@@ -31,5 +31,8 @@ describe("Dwitter", function () {
         .signup("hloname", "hlonames", "hlo bio", "hlo avatar"),
     ).to.be.revertedWith("Username is taken, please try another one.");
     console.log("test username is taken error");
+    await dwitter.postDweet("Hello my new world")
+    const dweet = await dwitter.dweets(0);
+    console.log(dweet)
   });
 });
