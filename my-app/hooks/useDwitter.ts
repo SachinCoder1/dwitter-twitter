@@ -13,6 +13,7 @@ const getDwitterContract = () => {
   return new ethers.Contract(ContractAddress, ContractABI, signer)
 }
 
+
 type User = {
   avatar: string
   bio: string
