@@ -7,12 +7,12 @@ Live url -> https://dwitter-twitter-one.vercel.app/
 
 Technologies used :-
 
--Solidty
--Hardhat
--Deploy web 3.0 live
--How blockchain works
--TypeScript
--Creating Web 3.0 web app from scratch to deploy it live.
+1. Solidty
+2. Hardhat
+3. Deploy web 3.0 live
+4. How blockchain works
+5. TypeScript
+6. Creating Web 3.0 web app from scratch to deploy it live.
 
 
 How to start this project? 
